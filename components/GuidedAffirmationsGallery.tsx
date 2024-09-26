@@ -22,7 +22,7 @@ const GuidedAffirmationsGallery = ({
         <FlatList
           data={previews}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(item) => item.id.toString()} // Ensure id is a string
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <Link href={`/affirmations/${item.id}`} asChild>
               <Pressable>
