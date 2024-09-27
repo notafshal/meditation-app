@@ -1,5 +1,6 @@
+import TimerProvider from "@/context/TimerContext";
 import { useFonts } from "expo-font";
-import { Slot, SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 //This will prevent splash screen fro, auto hiding until loading all the fonts assets
 SplashScreen.preventAutoHideAsync();
@@ -15,7 +16,7 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
   if (!fontsLoaded && !error) return null;
   return (
-    <>
+    <TimerProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -25,6 +26,6 @@ export default function RootLayout() {
           options={{ headerShown: false, presentation: "modal" }}
         />
       </Stack>
-    </>
+    </TimerProvider>
   );
 }

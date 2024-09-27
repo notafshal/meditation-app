@@ -1,12 +1,15 @@
 import { View, Text, Pressable } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import AppGradient from "@/components/AppGradient";
 import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
 import CustomButton from "@/components/CustomButton";
+import { TimerContext } from "@/context/TimerContext";
 
 const AdjustMeditaiton = () => {
+  const { setDuration } = useContext(TimerContext);
   const handlePress = (duration: number) => {
+    setDuration(duration);
     router.back();
   };
   return (
@@ -29,28 +32,28 @@ const AdjustMeditaiton = () => {
             <CustomButton
               title="10seconds"
               onPress={() => {
-                console.log(handlePress(10));
+                handlePress(10);
               }}
               containerStyles="mb-5"
             />
             <CustomButton
               title="5minutes"
               onPress={() => {
-                console.log(handlePress(5 * 60));
+                handlePress(5 * 60);
               }}
               containerStyles="mb-5"
             />
             <CustomButton
               title="10minutes"
               onPress={() => {
-                console.log(handlePress(10 * 60));
+                handlePress(10 * 60);
               }}
               containerStyles="mb-5"
             />
             <CustomButton
               title="15minutes"
               onPress={() => {
-                console.log(handlePress(15 * 60));
+                handlePress(15 * 60);
               }}
               containerStyles="mb-5"
             />
